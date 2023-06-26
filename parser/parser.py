@@ -243,10 +243,103 @@ def p_title(p):
             |   OPEN_EMAIL email CLOSE_EMAIL
 
     '''
+def p_SimPara(p):
+        '''
+            SimPara :
+                 //FALTA TEXTO
+            |   OPEN_EMPHASIS emphasis CLOSE_EMPHASIS SimPara
+            |   OPEN_LINK link CLOSE_LINK SimPara
+            |   OPEN_EMAIL email CLOSE_EMAIL SimPara
+            |   OPEN_AUTHOR author CLOSE_AUTHOR SimPara
+            |   OPEN_COMMENT comment CLOSE_COMMENT SimPara
+           
+            |   OPEN_EMPHASIS emphasis CLOSE_EMPHASIS
+            |   OPEN_LINK link CLOSE_LINK 
+            |   OPEN_EMAIL email CLOSE_EMAIL 
+            |   OPEN_AUTHOR author CLOSE_AUTHOR 
+            |   OPEN_COMMENT comment CLOSE_COMMENT 
+           
+        '''
+def p_Emphasis(p):
+       '''
+            Emphasis :
+                 //FALTA TEXTO
+            |   OPEN_EMPHASIS emphasis CLOSE_EMPHASIS Emphasis
+            |   OPEN_LINK link CLOSE_LINK Emphasis
+            |   OPEN_EMAIL email CLOSE_EMAIL Emphasis
+            |   OPEN_AUTHOR author CLOSE_AUTHOR Emphasis
+            |   OPEN_COMMENT comment CLOSE_COMMENT Emphasis
+           
+            |   OPEN_EMPHASIS emphasis CLOSE_EMPHASIS
+            |   OPEN_LINK link CLOSE_LINK 
+            |   OPEN_EMAIL email CLOSE_EMAIL 
+            |   OPEN_AUTHOR author CLOSE_AUTHOR 
+            |   OPEN_COMMENT comment CLOSE_COMMENT 
+           
+        '''
+def p_Comment(p):
+        '''
+            Comment :
+                 //FALTA TEXTO
+            |   OPEN_EMPHASIS emphasis CLOSE_EMPHASIS Comment
+            |   OPEN_LINK link CLOSE_LINK Comment
+            |   OPEN_EMAIL email CLOSE_EMAIL Comment
+            |   OPEN_AUTHOR author CLOSE_AUTHOR Comment
+            |   OPEN_COMMENT comment CLOSE_COMMENT Comment
+           
+            |   OPEN_EMPHASIS emphasis CLOSE_EMPHASIS
+            |   OPEN_LINK link CLOSE_LINK 
+            |   OPEN_EMAIL email CLOSE_EMAIL 
+            |   OPEN_AUTHOR author CLOSE_AUTHOR 
+            |   OPEN_COMMENT comment CLOSE_COMMENT 
+           
+        '''
+
+def p_Link(p):
+         '''
+            Link :
+                 //FALTA TEXTO
+            |   OPEN_EMPHASIS emphasis CLOSE_EMPHASIS Link
+            |   OPEN_LINK link CLOSE_LINK Link
+            |   OPEN_EMAIL email CLOSE_EMAIL Link
+            |   OPEN_AUTHOR author CLOSE_AUTHOR Link
+            |   OPEN_COMMENT comment CLOSE_COMMENT Link
+           
+            |   OPEN_EMPHASIS emphasis CLOSE_EMPHASIS
+            |   OPEN_LINK link CLOSE_LINK 
+            |   OPEN_EMAIL email CLOSE_EMAIL 
+            |   OPEN_AUTHOR author CLOSE_AUTHOR 
+            |   OPEN_COMMENT comment CLOSE_COMMENT 
+        '''
 
 
+def Para(p);
+    '''
+            Para :
+                 //FALTA TEXTO
+            |   OPEN_EMPHASIS emphasis CLOSE_EMPHASIS Para
+            |   OPEN_LINK link CLOSE_LINK Para
+            |   OPEN_EMAIL email CLOSE_EMAIL Para
+            |   OPEN_AUTHOR author CLOSE_AUTHOR Para
+            |   OPEN_COMMENT comment CLOSE_COMMENT Para
+            |   OPEN_LISTITEM listitem CLOSE_LISTITEM Para
+            |   OPEN_IMPORTANT important CLOSE_IMPORTANT Para
+            |   OPEN_ADDRESS address CLOSE_ADDRESS Para
+            |   OPEN_MEDIAOBJECT mediaobject CLOSE_MEDIAOBJECT Para
+            |   OPEN_INFORMALTABLE informaltable CLOSE_INFORMALTABLE Para
 
-
+            |   OPEN_EMPHASIS emphasis CLOSE_EMPHASIS
+            |   OPEN_LINK link CLOSE_LINK 
+            |   OPEN_EMAIL email CLOSE_EMAIL 
+            |   OPEN_AUTHOR author CLOSE_AUTHOR 
+            |   OPEN_COMMENT comment CLOSE_COMMENT 
+            |   OPEN_LISTITEM listitem CLOSE_LISTITEM
+            |   OPEN_IMPORTANT important CLOSE_IMPORTANT 
+            |   OPEN_ADDRESS address CLOSE_ADDRESS 
+            |   OPEN_MEDIAOBJECT mediaobject CLOSE_MEDIAOBJECT 
+            |   OPEN_INFORMALTABLE informaltable CLOSE_INFORMALTABLE 
+        
+    '''
 
 
 def p_important(p):
