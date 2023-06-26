@@ -4,6 +4,8 @@ import ply.yacc as yacc
 
 # reglas Gramaticales
 
+banderaadress = None
+
 def p_document(p):
     '''document : doctype article'''
 def doctype(p):
@@ -34,7 +36,12 @@ def p_article2(p):
             |   OPEN_IMPORTANT important CLOSE_IMPORTANT
             |   OPEN_PARA para CLOSE_PARA
             |   OPEN_SIMPARA simpara CLOSE_SIMPARA
-            |   OPEN_ADDREESS address CLOSE_ADDRESS
+          
+                //|   OPEN_ADDREESS address CLOSE_ADDRESS
+
+                //if   OPEN_ADDRESS address CLOSE_ADDRESS:
+                //   banderaadress = 1
+            
             |   OPEN_MEDIAOBJECT mediaobject CLOSE_MEDIAOBJECT
             |   OPEN_INFORMALTABLE informaltable CLOSE_INFORMALTABLE
             |   OPEN_COMMENT comment CLOSE_COMMENT
@@ -98,7 +105,13 @@ def p_section2(p):
             |   OPEN_IMPORTANT important CLOSE_IMPORTANT
             |   OPEN_PARA para CLOSE_PARA
             |   OPEN_SIMPARA simpara CLOSE_SIMPARA
-            |   OPEN_ADDREESS address CLOSE_ADDRESS
+            
+            //|   OPEN_ADDREESS address CLOSE_ADDRESS
+
+            //if   OPEN_ADDRESS address CLOSE_ADDRESS:
+                //   banderaadress = 2
+
+
             |   OPEN_MEDIAOBJECT mediaobject CLOSE_MEDIAOBJECT
             |   OPEN_INFORMALTABLE informaltable CLOSE_INFORMALTABLE
             |   OPEN_COMMENT comment CLOSE_COMMENT
@@ -163,7 +176,12 @@ def p_simplesec2(p):
             |   OPEN_IMPORTANT important CLOSE_IMPORTANT
             |   OPEN_PARA para CLOSE_PARA
             |   OPEN_SIMPARA simpara CLOSE_SIMPARA
-            |   OPEN_ADDREESS address CLOSE_ADDRESS
+            
+            //|   OPEN_ADDREESS address CLOSE_ADDRESS
+
+            //if   OPEN_ADDRESS address CLOSE_ADDRESS:
+                //   banderaadress = 3
+            
             |   OPEN_MEDIAOBJECT mediaobject CLOSE_MEDIAOBJECT
             |   OPEN_INFORMALTABLE informaltable CLOSE_INFORMALTABLE
             |   OPEN_COMMENT comment CLOSE_COMMENT
@@ -181,7 +199,11 @@ def p_info(p):
             |   OPEN_TITLE title CLOSE_TITLE info
             |   OPEN_MEDIAOBJECT mediaobject CLOSE_MEDIAOBJECT 
             |   OPEN_ABSTRACT abstract CLOSE_ABSTRACT 
-            |   OPEN_ADDREESS address CLOSE_ADDREESS 
+            
+            //|   OPEN_ADDREESS address CLOSE_ADDRESS
+
+            //if   OPEN_ADDRESS address CLOSE_ADDRESS:
+                //   banderaadress = 4
             |   OPEN_AUTHOR author CLOSE_AUTHOR 
             |   OPEN_DATE date CLOSE_DATE 
             |   OPEN_COPYRIGHT copyright CLOSE_COPYRIGHT 
@@ -211,7 +233,32 @@ def p_author(p):
     '''
 
 def p_address(p):
+     '''
+        //0 o más veces, debe permitir volver al NT que lo llama: puede ser Article2, SimpleSec2, o Info
+        //if banderaaddress == 1:
+            //se abrio desde article2, poder ir a la funcion article2 o todos los casos de abajo. 
+        //elif bandera_address == 2:
+            //se abrio desde section2, poder ir a la funcion section2 o todos los casos de abajo. 
+        //elif bandera_address == 3:
+            //se abrio desde simplesec2, poder ir a la funcion simplesec2 o todos los casos de abajo. 
 
+        else
+            //se abrio desde info, poder ir a la funcion info o todos los casos de abajo. 
+
+        //casos de 1 o mas veces. 
+       address : OPEN_STREET street CLOSE_STREET address
+            |   OPEN_CITY city CLOSE_CITY address
+            |   OPEN_STATE state CLOSE_STATE address
+            |   OPEN_PHONE phone CLOSE_PHONE address
+            |   OPEN_EMAIL email CLOSE_EMAIL address
+            
+              OPEN_STREET street CLOSE_STREET
+              |   OPEN_CITY city CLOSE_CITY
+              |   OPEN_STATE state CLOSE_STATE 
+              |   OPEN_PHONE phone CLOSE_PHONE 
+              |   OPEN_EMAIL email CLOSE_EMAIL
+            //faltaria texto
+    '''
 
 
 def p_copyright(p):
